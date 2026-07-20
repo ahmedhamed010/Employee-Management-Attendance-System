@@ -185,6 +185,34 @@ class HrApprovalView(APIView):
             }, status=status.HTTP_200_OK)
 
 
+# -----------------------------------------------
+# 6. Cancel (العامل نفسه)
+# -----------------------------------------------
+class CancelLeaveView(APIView):
+    permission_classes = [IsAuthenticated]
+    
+    def patch(self , request , id):
+        try :
+            leave = LeaveRequest.objects.get(id=id)
+        except LeaveRequest.DoesNotExist :
+            return Response({'error': 'Leave request not found.'}, status=status.HTTP_404_NOT_FOUND)
+
+        if leave.employee.user != request.user :
+            return Response({'error': 'Permission denied.'}, status=status.HTTP_403_FORBIDDEN)
+        
+        if leave.status not in ['pending' , 'manager_approved']:
+            return Response(
+                {'error': f'Cannot cancel a {leave.status} request.'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        leave.status = LeaveStatus.CANCELLED
+        leave.save()
+        return Response({
+            'message': 'Leave request cancelled successfully.',
+            'data': LeaveRequestSerializer(leave).data
+        }, status=status.HTTP_200_OK)
+
 
 
 

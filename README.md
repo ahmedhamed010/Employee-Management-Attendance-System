@@ -104,63 +104,63 @@ TIME_ZONE=Africa/Cairo
 ### Auth
 | Method | Endpoint | Description | Access |
 |--------|----------|-------------|--------|
-| POST | `/api/auth/register/` | Register new user | Public |
-| POST | `/api/auth/login/` | Login | Public |
-| POST | `/api/auth/logout/` | Logout | Auth |
-| POST | `/api/auth/refresh/` | Refresh token | Public |
-| GET | `/api/auth/profile/` | Get profile | Auth |
-| PATCH | `/api/auth/profile/` | Update profile | Auth |
-| DELETE | `/api/auth/profile/` | Deactivate account | Auth |
-| POST | `/api/auth/change-password/` | Change password | Auth |
+| POST | `/accounts/auth/register/` | Register new user | Public |
+| POST | `/accounts/auth/login/` | Login | Public |
+| POST | `/accounts/auth/logout/` | Logout | Auth |
+| POST | `/accounts/auth/refresh/` | Refresh token | Public |
+| GET | `/accounts/auth/profile/` | Get profile | Auth |
+| PATCH | `/accounts/auth/profile/` | Update profile | Auth |
+| DELETE | `/accounts/auth/profile/` | Deactivate account | Auth |
+| POST | `/accounts/auth/change-password/` | Change password | Auth |
 
 ### Role Management
 | Method | Endpoint | Description | Access |
 |--------|----------|-------------|--------|
-| GET | `/api/admin/users/` | List all users | Admin, HR |
-| PATCH | `/api/admin/users/<id>/role/` | Assign role | Admin |
+| GET | `/accounts/admin/users/` | List all users | Admin, HR |
+| PATCH | `/accounts/admin/users/<id>/role/` | Assign role | Admin |
 
 ### Employees
 | Method | Endpoint | Description | Access |
 |--------|----------|-------------|--------|
-| GET | `/api/employees/` | List employees | Admin, HR |
-| POST | `/api/employees/` | Create employee | Admin, HR |
-| GET | `/api/employees/search/` | Search employees | Admin, HR |
-| GET | `/api/employees/<id>/` | Get employee | Admin, HR |
-| PATCH | `/api/employees/<id>/` | Update employee | Admin, HR |
-| DELETE | `/api/employees/<id>/` | Delete employee | Admin, HR |
+| GET | `/employees/employees/` | List employees | Admin, HR |
+| POST | `/employees/employees/` | Create employee | Admin, HR |
+| GET | `/employees/employees/search/` | Search employees | Admin, HR |
+| GET | `/employees/employees/<id>/` | Get employee | Admin, HR |
+| PATCH | `/employees/employees/<id>/` | Update employee | Admin, HR |
+| DELETE | `/employees/employees/<id>/` | Delete employee | Admin, HR |
 
 ### Departments
 | Method | Endpoint | Description | Access |
 |--------|----------|-------------|--------|
-| GET | `/api/departments/` | List departments | Admin, HR |
-| POST | `/api/departments/` | Create department | Admin, HR |
-| GET | `/api/departments/<id>/` | Get department | Admin, HR |
-| PATCH | `/api/departments/<id>/` | Update department | Admin, HR |
-| DELETE | `/api/departments/<id>/` | Delete department | Admin, HR |
+| GET | `/departments/departments/` | List departments | Admin, HR |
+| POST | `/departments/departments/` | Create department | Admin, HR |
+| GET | `/departments/departments/<id>/` | Get department | Admin, HR |
+| PATCH | `/departments/departments/<id>/` | Update department | Admin, HR |
+| DELETE | `/departments/departments/<id>/` | Delete department | Admin, HR |
 
 ### Attendance
 | Method | Endpoint | Description | Access |
 |--------|----------|-------------|--------|
-| GET | `/api/attendance/` | List records | Admin, HR |
-| POST | `/api/attendance/` | Create record | Admin, HR |
-| GET | `/api/attendance/me/` | My attendance | Auth |
-| POST | `/api/attendance/check-in/` | Check in | Auth |
-| POST | `/api/attendance/check-out/` | Check out | Auth |
-| GET | `/api/attendance/<id>/` | Get record | Admin, HR |
-| PATCH | `/api/attendance/<id>/` | Update record | Admin, HR |
-| DELETE | `/api/attendance/<id>/` | Delete record | Admin, HR |
+| GET | `/attendance/attendance/` | List records | Admin, HR |
+| POST | `/attendance/attendance/` | Create record | Admin, HR |
+| GET | `/attendance/attendance/me/` | My attendance | Auth |
+| POST | `/attendance/attendance/check-in/` | Check in | Auth |
+| POST | `/attendance/attendance/check-out/` | Check out | Auth |
+| GET | `/attendance/attendance/<id>/` | Get record | Admin, HR |
+| PATCH | `/attendance/attendance/<id>/` | Update record | Admin, HR |
+| DELETE | `/attendance/attendance/<id>/` | Delete record | Admin, HR |
 
 ### Leave Management
 | Method | Endpoint | Description | Access |
 |--------|----------|-------------|--------|
-| GET | `/api/leaves/` | List leave requests | Admin, HR = All / Others = Own |
-| POST | `/api/leaves/` | Create leave request | Auth |
-| GET | `/api/leaves/<id>/` | Get leave request | Auth |
-| PATCH | `/api/leaves/<id>/` | Update leave request | Owner (pending only) |
-| DELETE | `/api/leaves/<id>/` | Delete leave request | Owner (pending only) |
-| PATCH | `/api/leaves/<id>/manager-approval/` | Manager approve/reject | Manager |
-| PATCH | `/api/leaves/<id>/hr-approval/` | HR approve/reject | Admin, HR |
-| PATCH | `/api/leaves/<id>/cancel/` | Cancel request | Owner |
+| GET | `/leaves/leaves/` | List leave requests | Admin, HR = All / Others = Own |
+| POST | `/leaves/leaves/` | Create leave request | Auth |
+| GET | `/leaves/leaves/<id>/` | Get leave request | Auth |
+| PATCH | `/leaves/leaves/<id>/` | Update leave request | Owner (pending only) |
+| DELETE | `/leaves/leaves/<id>/` | Delete leave request | Owner (pending only) |
+| PATCH | `/leaves/leaves/<id>/manager-approval/` | Manager approve/reject | Manager |
+| PATCH | `/leaves/leaves/<id>/hr-approval/` | HR approve/reject | Admin, HR |
+| PATCH | `/leaves/leaves/<id>/cancel/` | Cancel request | Owner |
 
 ---
 
